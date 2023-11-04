@@ -13,15 +13,24 @@ module tt_um_tmiw_sawtooth_generator (
 
     wire reset = ! rst_n;
 
+    assign uio_oe = 8'b11111111;
+
     wire [15:0] pcm;
     triangle tri_inst(clk, reset, ui_in[7:4], pcm);
 
-    wire out_tmp;
-    reg [15:0] pdm_out;
+    reg pdm_out;
     wire [15:0] pdm_err;
 
-    pdm pdm_gen(clk, sin, reset, out_tmp, pdm_err);
+    pdm pdm_gen(clk, pcm, reset, pdm_out, pdm_err);
 
-    assign uio_out[7] = out_tmp;
+
+    always @(posedge clk) begin
+        // if reset, set counter to 0
+        if (reset) begin
+            pdm_out <= 0;
+        end
+    end
+
+    assign uio_out = { pdm_out, pcm[6:0] };
 
 endmodule
