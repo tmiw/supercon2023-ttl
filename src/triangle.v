@@ -10,13 +10,16 @@ begin
         ctr <= 0;
         dir <= 4 << shift_by;
     end
+    else
+    begin
+        if (ctr >= 25000000 && dir > 0)
+            dir <= (-4) << shift_by;
+        else if (ctr == 0 && dir < 0)
+            dir <= 4 << shift_by;
 
-    if (ctr >= 25000000 && dir > 0)
-        dir <= (-4) << shift_by;
-    else if (ctr == 0 && dir < 0)
-        dir <= 4 << shift_by;
+        ctr <= ctr + dir;
+    end
 
-    ctr <= ctr + dir;
     out <= ctr[24:9];
 end
 
