@@ -18,7 +18,7 @@ module tt_um_wokwi_380408774591779841 (
     wire [15:0] pcm;
     triangle tri_inst(clk, reset, ui_in[7:4], pcm);
 
-    reg pdm_out;
+    wire pdm_out;
     wire [15:0] pdm_err;
 
     pdm pdm_gen(clk, pcm, reset, pdm_out, pdm_err);
