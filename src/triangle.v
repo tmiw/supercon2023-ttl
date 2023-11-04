@@ -14,7 +14,7 @@ begin
     begin
         if (ctr >= 25000000 && dir > 0)
             dir <= (-4) << shift_by;
-        else if (ctr == 0 && dir < 0)
+        else if (ctr == 0 && (dir & 26'b10000000000000000000000000) != 0)
             dir <= 4 << shift_by;
 
         ctr <= ctr + dir;

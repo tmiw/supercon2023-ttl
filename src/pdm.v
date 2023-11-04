@@ -1,6 +1,4 @@
 // Pulse density Modulator
-`timescale 1 ns / 1 ps
-
 module pdm #(parameter NBITS = 16)
 (
   input wire clk,
