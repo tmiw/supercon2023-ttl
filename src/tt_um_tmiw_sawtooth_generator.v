@@ -24,5 +24,6 @@ module tt_um_tmiw_sawtooth_generator (
     pdm pdm_gen(clk, pcm, reset, pdm_out, pdm_err);
 
     assign uio_out = { pdm_out, pcm[6:0] };
+    assign uo_out = { pdm_out, pcm[6:0] };
 
 endmodule
