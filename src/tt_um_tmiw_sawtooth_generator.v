@@ -23,14 +23,7 @@ module tt_um_tmiw_sawtooth_generator (
 
     pdm pdm_gen(clk, pcm, reset, pdm_out, pdm_err);
 
-
-    always @(posedge clk) begin
-        // if reset, set counter to 0
-        if (reset) begin
-            pdm_out <= 0;
-        end
-    end
-
     assign uio_out = { pdm_out, pcm[6:0] };
+    assign uo_out = 8b'00000000;
 
 endmodule
