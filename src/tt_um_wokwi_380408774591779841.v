@@ -1,6 +1,6 @@
 `default_nettype none
 
-module tt_um_tmiw_sawtooth_generator (
+module tt_um_wokwi_380408774591779841 (
     input  wire [7:0] ui_in,    // Dedicated inputs - connected to the input switches
     output wire [7:0] uo_out,   // Dedicated outputs - connected to the 7 segment display
     input  wire [7:0] uio_in,   // IOs: Bidirectional Input path

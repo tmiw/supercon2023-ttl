@@ -24,7 +24,7 @@ module tb (
     wire [3:0] shfit_by = ui_in[7:4];
     wire pdm_output = uio_out[7];
 
-    tt_um_tmiw_sawtooth_generator tt_um_tmiw_sawtooth_generator (
+    tt_um_wokwi_380408774591779841 tt_um_wokwi_380408774591779841 (
     `ifdef GL_TEST
         .VPWR( 1'b1),
         .VGND( 1'b0),
